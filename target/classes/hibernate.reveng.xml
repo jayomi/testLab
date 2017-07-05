@@ -2,5 +2,25 @@
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
 
 <hibernate-reverse-engineering>
-  <table-filter match-name=".*"/>
+  <table-filter match-catalog="allianz_lab_portal" match-name="assign_to_doctor"/>
+  <table-filter match-catalog="allianz_lab_portal" match-name="assign_tolab"/>
+  <table-filter match-catalog="allianz_lab_portal" match-name="branch"/>
+  <table-filter match-catalog="allianz_lab_portal" match-name="department"/>
+  <table-filter match-catalog="allianz_lab_portal" match-name="doctor"/>
+  <table-filter match-catalog="allianz_lab_portal" match-name="head_token_info"/>
+  <table-filter match-catalog="allianz_lab_portal" match-name="lab"/>
+  <table-filter match-catalog="allianz_lab_portal" match-name="login_type"/>
+    <table-filter match-catalog="allianz_lab_portal" match-name="register"/>
+  <table-filter match-catalog="allianz_lab_portal" match-name="register_user"/>
+  <table-filter match-catalog="allianz_lab_portal" match-name="sub_lab"/>
+  <table-filter match-catalog="allianz_lab_portal" match-name="subdepartment"/>
+  <table-filter match-catalog="allianz_lab_portal" match-name="upload_reports_from_lab"/>
+  <table-filter match-catalog="allianz_lab_portal" match-name="uploadreportsfromdoctor"/>
+  <table-filter match-catalog="allianz_lab_portal" match-name="user"/>
+  <table-filter match-catalog="allianz_lab_portal" match-name="user_type"/>
+    <table-filter match-catalog="allianz_lab_portal" match-name="log"/>
+     <table-filter match-catalog="allianz_lab_portal" match-name="medical_reports"/>
+      <table-filter match-catalog="allianz_lab_portal" match-name="special_medical_reports"/>
+     
+     
 </hibernate-reverse-engineering>

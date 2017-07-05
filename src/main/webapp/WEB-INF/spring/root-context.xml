@@ -7,16 +7,32 @@
 	
 	<!-- Root Context: defines shared resources visible to all other web components -->
 		
-		
-			
-	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"  
+	<!-- Start local configuration -->	
+ 	 
+     <!-- <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"  
         destroy-method="close">  
         <property name="driverClassName" value="com.mysql.jdbc.Driver" />  
         <property name="url"  
-            value="jdbc:mysql://localhost:3306/labportal" />  
+            value="jdbc:mysql://localhost:3306/allianz_lab_portal" />  
         <property name="username" value="root" />  
         <property name="password" value="root" />  
-    </bean>  
+     </bean>  -->
+           
+     <!-- End local configuration -->    
+     
+     
+    <!-- Start Server configuration -->
+     
+      <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"  
+        destroy-method="close">  
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />  
+        <property name="url"  
+            value="jdbc:mysql://192.168.128.36:3306/allianz_lab_portal" />  
+        <property name="username" value="allianz_lab_portal" />  
+        <property name="password" value="labportal@123" />  
+    	</bean>
+           
+    <!-- End Server configuration -->
   
     <!-- Hibernate 4 SessionFactory Bean definition -->  
     <bean id="hibernate4AnnotatedSessionFactory"  
@@ -25,6 +41,27 @@
         <property name="annotatedClasses">  
             <list>  
                 <value>com.allianz.labportal.model.User</value>  
+                 <value>com.allianz.labportal.model.Branch</value> 
+                  <value>com.allianz.labportal.model.Department</value>
+                   <value>com.allianz.labportal.model.Doctor</value>
+                    <value>com.allianz.labportal.model.Lab</value>
+                     <value>com.allianz.labportal.model.LoginType</value>
+                     <value>com.allianz.labportal.model.Register</value>
+                      <value>com.allianz.labportal.model.RegisterUser</value>
+                       <value>com.allianz.labportal.model.Subdepartment</value> 
+                        <value>com.allianz.labportal.model.SubLab</value> 
+                         <value>com.allianz.labportal.model.UserType</value>                          
+                           <value>com.allianz.labportal.model.HeadTokenInfo</value>
+                           <value>com.allianz.labportal.model.AssignTolab</value>
+                            <value>com.allianz.labportal.model.UploadReportsFromLab</value>
+                            <value>com.allianz.labportal.model.AssignToDoctor</value>
+                            <value>com.allianz.labportal.model.Uploadreportsfromdoctor</value>                            
+                            <value>com.allianz.labportal.model.Log</value>
+                            <value>com.allianz.labportal.model.MedicalReports</value>
+                            <value>com.allianz.labportal.model.SpecialMedicalReports</value>
+                           
+                            
+                                  
             </list>  
         </property>  
         <property name="hibernateProperties">  
@@ -46,12 +83,6 @@
             ref="hibernate4AnnotatedSessionFactory" />  
     </bean>  
   
-	<!-- <bean id="userService" class="com.allianz.labportal.service.UserServiceImpl">
-		
-	</bean>
-	<bean id="userDao" class="com.allianz.labportal.dao.UserDaoImpl">
-		
-	</bean> -->
 	
 	
 		

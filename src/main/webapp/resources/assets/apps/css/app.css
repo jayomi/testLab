@@ -1,0 +1,84 @@
+@CHARSET "ISO-8859-1";
+
+.submenuTab{
+	margin-left: 10px;
+	color: #804040;
+}
+
+.firstPageAppLogo{
+	max-height: 150px;
+	max-width: 550px;
+	width: auto;
+	height: auto;
+	vertical-align: middle;
+	float: left;
+}
+
+.firstPageBigImg{
+	display: block;
+    margin-left: auto;
+    margin-right: auto 
+}
+
+.pageLogo{
+	max-height: 65px !important;
+	max-width: 380px !important;
+	width: auto;
+	height: auto;
+	vertical-align: middle;
+	float: left;
+}
+
+.firstPageAllianzLogo{
+
+	margin-top: 32px;
+	max-height: 90px;
+	max-width: 300px;
+	width: auto;
+	height: auto;
+	vertical-align: middle;
+	float: right;
+
+}
+.labportalSignIn{
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    width: 20px;
+    
+}
+
+.firstPageWelcomeMsg{
+	
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    
+}
+.firstPageHeader{
+	background-color: #fff;
+	margin-top: 50px;	
+}
+
+.pageFooter{
+	display: block;
+	margin-left: auto;
+    margin-right: auto;
+    vertical-align: middle;
+    width: 300px;
+    padding-left: 40px;
+   
+}
+
+.proposalNocolumn{
+     padding: 4px; 
+    background-color: #ffe56f;
+    color: #464c51;
+    border-radius: 5px;
+    /*  font-size: 13px;
+    padding-left: 8px;
+    padding-right: 8px;  */
+    
+ }

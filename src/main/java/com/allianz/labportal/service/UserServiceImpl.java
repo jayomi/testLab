@@ -1,5 +1,6 @@
 package com.allianz.labportal.service;
 
+import java.util.Date;
 import java.util.List;
 
 
@@ -45,6 +46,60 @@ public class UserServiceImpl implements UserService {
 	@Transactional
 	public User addUser(User user) {
 		return userDao.addUser(user);
+	}
+
+	@Override
+	@Transactional
+	public User checkUserByUserName(String userName) {
+		return userDao.checkUserByUserName(userName);
+	}
+
+	@Override
+	@Transactional
+	public User checkNonADUser(String userName, String password) {
+		return userDao.checkNonADUser(userName, password);
+	}
+
+	@Override
+	@Transactional
+	public String getUserType(String userName, String password) {
+		return userDao.getUserType(userName, password);
+	}
+
+	@Override
+	@Transactional
+	public String getUserType(String userName) {
+		return userDao.getUserType(userName);
+	}
+
+	@Override
+	@Transactional
+	public User getUserById(int id) {
+		return userDao.getUserById(id);
+	}
+
+	@Override
+	@Transactional
+	public List<User> getUserListByUserType(int usertypeId) {
+		return userDao.getUserListByUserType(usertypeId);
+	}
+
+	@Override
+	@Transactional
+	public Date getLastModifyDate(int id) {
+		return userDao.getLastModifyDate(id);
+	}
+
+	@Override
+	@Transactional
+	public User checkUserByUserNameAndUserType(String userName, int userTypeId) {
+		return userDao.checkUserByUserNameAndUserType(userName,userTypeId);
+	}
+
+	@Override
+	@Transactional
+	public Boolean getFirstLoginStatus(int id) {
+		return userDao.getFirstLoginStatus(id);
 	}
 
 	

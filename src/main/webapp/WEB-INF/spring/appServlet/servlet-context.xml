@@ -23,9 +23,44 @@
 	</beans:bean>
 	
 	
+	<beans:bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+		<!-- setting maximum upload size -->
+		<beans:property name="maxUploadSize" value="20971520" /> <!-- byte value, 20MB = 20971520 bite in binary  -->
+
+	</beans:bean>
+	
+	
 	
 	<!-- //////////////////////////////////////////////////////////// -->
     <context:component-scan base-package="com.allianz.labportal" />
 	<!-- ///////////////////////////////////////////////////////////////////// -->
+	
+	
+	 <beans:bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <beans:property name="host" value="192.168.128.195" />
+        <beans:property name="port" value="587" />
+        <beans:property name="username" value="labportal" /> <!-- qportal -->
+        <beans:property name="password" value="labportal@allianz" />  <!-- qportal@123 -->
+        <beans:property name="javaMailProperties">
+            <beans:props>
+                <beans:prop key="mail.transport.protocol">smtp</beans:prop>
+                <beans:prop key="mail.smtp.auth">true</beans:prop>
+                <beans:prop key="mail.smtp.starttls.enable">true</beans:prop>
+                <beans:prop key="mail.smtp.ssl.trust">192.168.128.195</beans:prop>
+                <beans:prop key="mail.mime.charset">UTF-8</beans:prop>
+                
+            </beans:props>
+        </beans:property>
+       <beans:property name="defaultEncoding" value="UTF-8"/>    
+       
+       
+    </beans:bean>
+    
+    
+    <!-- <beans:bean id="mailMail" class="com.allianz.labportal.main.EmailNotification">
+	<beans:property name="mailSender" ref="mailSender" />
+	</beans:bean> -->
+     
 	
 </beans:beans>

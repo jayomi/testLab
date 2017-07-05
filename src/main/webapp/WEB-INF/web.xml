@@ -1,42 +1,376 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-
-	<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/spring/root-context.xml</param-value>
-	</context-param>
-	
-	<!-- Creates the Spring Container shared by all Servlets and Filters -->
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-
-	<!-- Processes application requests -->
-	<servlet>
-		<servlet-name>appServlet</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
-		</init-param>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-		
-	<servlet-mapping>
-		<servlet-name>appServlet</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping>
-	
-<servlet>
-   <servlet-name>users</servlet-name>
-   <jsp-file>/users.jsp</jsp-file>
-</servlet>
-<servlet-mapping>
-  <servlet-name>users</servlet-name>
-  <url-pattern>/users</url-pattern>
-</servlet-mapping>
-
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <context-param>
+    <param-name>contextConfigLocation</param-name>
+    <param-value>/WEB-INF/spring/root-context.xml</param-value>
+  </context-param>
+  <session-config>
+    <session-timeout>120</session-timeout>
+  </session-config>
+  
+  <!-- stat filter -->
+  <filter>
+	<filter-name>errorHandlerFilter</filter-name>
+	<filter-class>com.allianz.labportal.main.ErrorHandleFilter</filter-class>
+</filter>
+<filter-mapping>
+	<filter-name>errorHandlerFilter</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+  <!-- end filter -->
+  
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>appServlet</servlet-name>
+    <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+    <init-param>
+      <param-name>contextConfigLocation</param-name>
+      <param-value>/WEB-INF/spring/appServlet/servlet-context.xml</param-value>
+    </init-param>
+    <load-on-startup>1</load-on-startup>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>appServlet</servlet-name>
+    <url-pattern>/</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>users</servlet-name>
+    <jsp-file>/users.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>users</servlet-name>
+    <url-pattern>/users</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>dashboard</servlet-name>
+    <jsp-file>/dashbord.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>dashboard</servlet-name>
+    <url-pattern>/dashbord</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>loginPage</servlet-name>
+    <jsp-file>/loginPage.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>loginPage</servlet-name>
+    <url-pattern>/loginPage</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>home</servlet-name>
+    <jsp-file>/home.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>home</servlet-name>
+    <url-pattern>/home</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>register</servlet-name>
+    <jsp-file>/register.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>register</servlet-name>
+    <url-pattern>/register</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>createTokens</servlet-name>
+    <jsp-file>/createTokens.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>createTokens</servlet-name>
+    <url-pattern>/createTokens</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>viewTokens</servlet-name>
+    <jsp-file>/viewTokens.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>viewTokens</servlet-name>
+    <url-pattern>/viewTokens</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>headToken</servlet-name>
+    <jsp-file>/headToken.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>headToken</servlet-name>
+    <url-pattern>/headToken</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>viewTab</servlet-name>
+    <jsp-file>/viewTokens_Tab.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>viewTab</servlet-name>
+    <url-pattern>/viewTokens_Tab</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>viewAdmin</servlet-name>
+    <jsp-file>/viewTokens_Admin.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>viewAdmin</servlet-name>
+    <url-pattern>/viewTokens_Admin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>viewBranch</servlet-name>
+    <jsp-file>/viewTokens_Branch.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>viewBranch</servlet-name>
+    <url-pattern>/viewTokens_Branch</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>LabDashBoard</servlet-name>
+    <jsp-file>/lab_dashbord.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LabDashBoard</servlet-name>
+    <url-pattern>/lab_dashbord</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>viewLab</servlet-name>
+    <jsp-file>/viewTokens_Lab.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>viewLab</servlet-name>
+    <url-pattern>/viewTokens_Lab</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>labToken</servlet-name>
+    <jsp-file>/labToken.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>labToken</servlet-name>
+    <url-pattern>/labToken</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>fileUpload</servlet-name>
+    <jsp-file>/fileUpload.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>fileUpload</servlet-name>
+    <url-pattern>/fileUpload</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>viewReports</servlet-name>
+    <jsp-file>/viewReports.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>viewReports</servlet-name>
+    <url-pattern>/viewReports</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DoctorReports</servlet-name>
+    <jsp-file>/DoctorReports.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoctorReports</servlet-name>
+    <url-pattern>/DoctorReports</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>doctor_dashbord</servlet-name>
+    <jsp-file>/doctor_dashbord.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>doctor_dashbord</servlet-name>
+    <url-pattern>/doctor_dashbord</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ViewTokens_Doctor</servlet-name>
+    <jsp-file>/ViewTokens_Doctor.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ViewTokens_Doctor</servlet-name>
+    <url-pattern>/ViewTokens_Doctor</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>LabAssignedToken</servlet-name>
+    <jsp-file>/LabAssignedToken.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LabAssignedToken</servlet-name>
+    <url-pattern>/LabAssignedToken</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>test</servlet-name>
+    <jsp-file>/test.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>test</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>fileUpload_Doctor</servlet-name>
+    <jsp-file>/fileUpload_Doctor.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>fileUpload_Doctor</servlet-name>
+    <url-pattern>/fileUpload_Doctor</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>assignedToDoctor</servlet-name>
+    <jsp-file>/assignedToDoctor.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>assignedToDoctor</servlet-name>
+    <url-pattern>/assignedToDoctor</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>fromDoctor</servlet-name>
+    <jsp-file>/fromDoctor.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>fromDoctor</servlet-name>
+    <url-pattern>/fromDoctor</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>createLab</servlet-name>
+    <jsp-file>/createLab.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>createLab</servlet-name>
+    <url-pattern>/createLab</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>first</servlet-name>
+    <jsp-file>/first.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>first</servlet-name>
+    <url-pattern>/first</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>editToken</servlet-name>
+    <jsp-file>/editToken.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>editToken</servlet-name>
+    <url-pattern>/editToken</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>viewLabs</servlet-name>
+    <jsp-file>/viewLabs.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>viewLabs</servlet-name>
+    <url-pattern>/viewLabs</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>error</servlet-name>
+    <jsp-file>/error.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>error</servlet-name>
+    <url-pattern>/error</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>changePassword</servlet-name>
+    <jsp-file>/changePassword.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>changePassword</servlet-name>
+    <url-pattern>/changePassword</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>locations</servlet-name>
+    <jsp-file>/locations.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>locations</servlet-name>
+    <url-pattern>/locations</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>SRP_dashbord</servlet-name>
+    <jsp-file>/SRP_dashbord.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SRP_dashbord</servlet-name>
+    <url-pattern>/SRP_dashbord</url-pattern>
+  </servlet-mapping>
+  
+  
+   <servlet>
+    <servlet-name>assignedToSRP</servlet-name>
+    <jsp-file>/assignedToSRP.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>assignedToSRP</servlet-name>
+    <url-pattern>/assignedToSRP</url-pattern>
+  </servlet-mapping>
+  
+  
+    <servlet>
+    <servlet-name>srpReports</servlet-name>
+    <jsp-file>/srpReports.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>srpReports</servlet-name>
+    <url-pattern>/srpReports</url-pattern>
+  </servlet-mapping>
+  
+  
+   <servlet>
+    <servlet-name>fromSRP</servlet-name>
+    <jsp-file>/fromSRP.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>fromSRP</servlet-name>
+    <url-pattern>/fromSRP</url-pattern>
+  </servlet-mapping>
+  
+  
+   <servlet>
+    <servlet-name>labToken_AssigntoHO</servlet-name>
+    <jsp-file>/labToken_AssigntoHO.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>labToken_AssigntoHO</servlet-name>
+    <url-pattern>/labToken_AssigntoHO</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>DoctorToken_AssigntoHO</servlet-name>
+    <jsp-file>/DoctorToken_AssigntoHO.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DoctorToken_AssigntoHO</servlet-name>
+    <url-pattern>/DoctorToken_AssigntoHO</url-pattern>
+  </servlet-mapping>
+  
+ 
+  
+  <servlet>
+    <servlet-name>srp_AssigntoHO</servlet-name>
+    <jsp-file>/srp_AssigntoHO.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>srp_AssigntoHO</servlet-name>
+    <url-pattern>/srp_AssigntoHO</url-pattern>
+  </servlet-mapping> 
+  
+  <servlet>
+    <servlet-name>RegisteringUsers</servlet-name>
+    <jsp-file>/RegisteringUsers.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegisteringUsers</servlet-name>
+    <url-pattern>/RegisteringUsers</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet>
+    <servlet-name>requestPassword</servlet-name>
+    <jsp-file>/requestPassword.jsp</jsp-file>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>requestPassword</servlet-name>
+    <url-pattern>/requestPassword</url-pattern>
+  </servlet-mapping>
+  
 </web-app>
